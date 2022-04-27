@@ -1,4 +1,5 @@
-# fichier .tf code HCL de base pour main.tf
+# .tf file basic HCL code for main.tf
+# Configure the AWS provider
 terraform {
   required_providers {
     aws = {
@@ -18,6 +19,8 @@ provider "aws" {
 resource "aws_instance" "app_server" {
   ami           = "ami-830c94e3"
   instance_type = "t2.micro"
+  vpc_security_group_ids = ["sg-0077..."]
+  subnet_id              = "subnet-923a..."
 
   tags = {
     Name = "ExampleAppServerInstance"
