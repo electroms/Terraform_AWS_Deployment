@@ -1,6 +1,13 @@
 # .tf file basic HCL code for main.tf
 # Configure the AWS provider
 terraform {
+  # Terraform Cloud : 
+    cloud {
+    organization = "<ORG_NAME>"
+    workspaces {
+      name = "Example-Workspace"
+    }
+  
   required_providers {
     aws = {
       source  = "hashicorp/aws"
@@ -17,12 +24,13 @@ provider "aws" {
 }
 
 resource "aws_instance" "app_server" {
-  ami           = "ami-830c94e3"
+  # Ubuntu 16.04 instnace 
+  ami           = "ami-08d70e59c07c61a3a"
   instance_type = "t2.micro"
   vpc_security_group_ids = ["sg-0077..."]
   subnet_id              = "subnet-923a..."
 
   tags = {
-    Name = "ExampleAppServerInstance"
+    Name = var.instance_name
   }
 }
