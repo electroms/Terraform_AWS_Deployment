@@ -5,7 +5,7 @@ terraform {
     cloud {
     organization = "Electroms"
     workspaces {
-      name = "Electroms Workspace"
+      name = "Electroms-Workspace-Aws"
     }
   }
   
