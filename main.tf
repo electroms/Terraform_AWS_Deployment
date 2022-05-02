@@ -3,10 +3,11 @@
 terraform {
   # Terraform Cloud : 
     cloud {
-    organization = "<ORG_NAME>"
+    organization = "Electroms"
     workspaces {
-      name = "Example-Workspace"
+      name = "Electroms Workspace"
     }
+  }
   
   required_providers {
     aws = {
